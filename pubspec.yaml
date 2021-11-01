@@ -44,9 +44,9 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/app_icon.png"
+  image_path: "assets/images/pie-chart.png"
   adaptive_icon_background: "#FFBF00"
-  adaptive_icon_foreground: "assets/images/app_icon.png"
+  adaptive_icon_foreground: "assets/images/pie-chart.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -63,7 +63,7 @@ flutter:
   assets:
     - assets/images/waiting.png
     - assets/images/github.png
-    - assets/images/app_icon.png
+    - assets/images/pie-chart.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

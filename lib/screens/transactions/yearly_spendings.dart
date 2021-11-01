@@ -11,6 +11,9 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class YearlySpendings extends StatefulWidget {
+  final name;
+
+  const YearlySpendings({Key key, @required this.name}) : super(key: key);
   @override
   _YearlySpendingsState createState() => _YearlySpendingsState();
 }
@@ -55,8 +58,7 @@ class _YearlySpendingsState extends State<YearlySpendings> {
   Widget build(BuildContext context) {
     // final trxData = Provider.of<Transactions>(context, listen: false);
 
-    final deleteFn =
-        Provider.of<Transactions>(context).deleteTransaction;
+    final deleteFn = Provider.of<Transactions>(context).deleteTransaction;
 
     final yearlyTrans = Provider.of<Transactions>(context, listen: false)
         .yearlyTransactions(_selectedYear);
@@ -82,7 +84,8 @@ class _YearlySpendingsState extends State<YearlySpendings> {
         // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.only(right: 15, left: 5, top: 5, bottom: 5),
+            padding:
+                const EdgeInsets.only(right: 15, left: 5, top: 5, bottom: 5),
             color: Theme.of(context).primaryColorLight,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -92,7 +95,7 @@ class _YearlySpendingsState extends State<YearlySpendings> {
                   children: <Widget>[
                     widgetToSelectYear(),
                     Text(
-                      "₹${trxData.getTotal(yearlyTrans)}",
+                      "\$${trxData.getTotal(yearlyTrans)}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -122,7 +125,7 @@ class _YearlySpendingsState extends State<YearlySpendings> {
             ),
           ),
           yearlyTrans.isEmpty
-              ? NoTransactions()
+              ? NoTransactions(name: widget.name)
               : _showChart
                   ? yearlyChart(
                       context,

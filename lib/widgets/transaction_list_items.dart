@@ -25,7 +25,7 @@ class _TransactionListItemsState extends State<TransactionListItems> {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               padding: const EdgeInsets.all(8.0),
-              child: Text("₹${widget.trx.amount}",
+              child: Text("\$${widget.trx.amount}",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,

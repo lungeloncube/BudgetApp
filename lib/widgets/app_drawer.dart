@@ -18,8 +18,11 @@ class AppDrawer extends StatelessWidget {
           elevation: 0,
           automaticallyImplyLeading: false,
           title: Text(
-            'Daily Spendings',
-            style: Theme.of(context).appBarTheme.textTheme.headline1,
+            'Your budget App',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+            ),
           ),
         ),
         body: Column(
@@ -57,7 +60,7 @@ class AppDrawer extends StatelessWidget {
                     title: Text("Contribute"),
                     onTap: () async {
                       String url = Uri.encodeFull(
-                          "https://github.com/Mufaddal5253110/DailySpending.git");
+                          "https://github.com/lungeloncube/BudgetApp.git");
                       if (await canLaunch(url)) {
                         Navigator.of(context).pop();
                         await launch(url);

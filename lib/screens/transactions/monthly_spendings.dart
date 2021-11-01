@@ -10,6 +10,9 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class MonthlySpendings extends StatefulWidget {
+  final name;
+
+  const MonthlySpendings({Key key, @required this.name}) : super(key: key);
   @override
   _MonthlySpendingsState createState() => _MonthlySpendingsState();
 }
@@ -53,7 +56,7 @@ class _MonthlySpendingsState extends State<MonthlySpendings> {
                     dropDownToSelectMonth(context),
                     widgetToSelectYear(),
                     Text(
-                      "₹${trxData.getTotal(monthlyTrans)}",
+                      "\$${trxData.getTotal(monthlyTrans)}",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -83,7 +86,7 @@ class _MonthlySpendingsState extends State<MonthlySpendings> {
             ),
           ),
           monthlyTrans.isEmpty
-              ? NoTransactions()
+              ? NoTransactions(name: widget.name)
               : (_showChart
                   ? MyPieChart(pieData: monthlyData)
                   : ListView.builder(

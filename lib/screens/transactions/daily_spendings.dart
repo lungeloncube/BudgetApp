@@ -9,6 +9,9 @@ import 'package:daily_spending/widgets/no_trancaction.dart';
 import 'package:daily_spending/widgets/transaction_list_items.dart';
 
 class DailySpendings extends StatefulWidget {
+  final name;
+
+  const DailySpendings({Key key, @required this.name}) : super(key: key);
   @override
   _DailySpendingsState createState() => _DailySpendingsState();
 }
@@ -41,7 +44,7 @@ class _DailySpendingsState extends State<DailySpendings> {
           Container(
               padding: const EdgeInsets.only(
                   right: 15, top: 10, bottom: 10, left: 15),
-              color: Theme.of(context).primaryColorLight,
+              color: Colors.blue[100],
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -85,7 +88,9 @@ class _DailySpendingsState extends State<DailySpendings> {
                 ],
               )),
           dailyTrans.isEmpty
-              ? NoTransactions()
+              ? NoTransactions(
+                  name: widget.name,
+                )
               : (_showChart
                   ? MyPieChart(pieData: dailyData)
                   : ListView.builder(

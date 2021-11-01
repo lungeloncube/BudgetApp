@@ -10,6 +10,9 @@ import 'package:daily_spending/widgets/no_trancaction.dart';
 import 'package:daily_spending/widgets/transaction_list_items.dart';
 
 class WeeklySpendings extends StatefulWidget {
+  final name;
+
+  const WeeklySpendings({Key key, @required this.name}) : super(key: key);
   @override
   _WeeklySpendingsState createState() => _WeeklySpendingsState();
 }
@@ -37,8 +40,7 @@ class _WeeklySpendingsState extends State<WeeklySpendings> {
 
   @override
   Widget build(BuildContext context) {
-    final deleteFn =
-        Provider.of<Transactions>(context).deleteTransaction;
+    final deleteFn = Provider.of<Transactions>(context).deleteTransaction;
     final recentTransaction =
         Provider.of<Transactions>(context, listen: false).rescentTransactions;
     final recentData = PieData().pieChartData(recentTransaction);
@@ -94,7 +96,7 @@ class _WeeklySpendingsState extends State<WeeklySpendings> {
                 ],
               )),
           recentTransaction.isEmpty
-              ? NoTransactions()
+              ? NoTransactions(name: widget.name)
               : (_showChart
                   ? weaklyChart(context, recentTransaction, recentData)
                   : ListView.builder(

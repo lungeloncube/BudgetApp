@@ -48,9 +48,9 @@ class _NewTransactionState extends State<NewTransaction> {
         elevation: 0,
         title: Text(
           "Add Transaction",
-          style: Theme.of(context).appBarTheme.textTheme.headline1,
+          style: TextStyle(color: Colors.black, fontSize: 18),
         ),
-        backgroundColor: Colors.white10,
+        backgroundColor: Colors.blue[100],
       ),
       body: SingleChildScrollView(
         child: Padding(

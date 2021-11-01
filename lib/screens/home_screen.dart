@@ -19,6 +19,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+  var daily = "Daily";
+  var weekly = "Weekly";
+  var monthly = "Monthly";
+  var yearly = "Yearly";
 
   @override
   void initState() {
@@ -38,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         title: Text(
           "Home",
-          style: Theme.of(context).appBarTheme.textTheme.headline1,
+          style: TextStyle(color: Colors.black, fontSize: 24),
         ),
         actions: <Widget>[
           IconButton(
@@ -47,21 +51,21 @@ class _HomeScreenState extends State<HomeScreen>
                   Navigator.of(context).pushNamed(NewTransaction.routeName)),
         ],
         bottom: new TabBar(
-          unselectedLabelColor: Colors.grey,
+          unselectedLabelColor: Colors.blue[900],
           labelColor: Colors.black,
-          indicatorColor: Theme.of(context).primaryColorDark,
+          indicatorColor: Colors.black,
           tabs: <Widget>[
             new Tab(
-              text: "Daily",
+              text: daily,
             ),
             new Tab(
-              text: "Weekly",
+              text: weekly,
             ),
             new Tab(
-              text: 'Monthly',
+              text: monthly,
             ),
             new Tab(
-              text: 'Yearly',
+              text: yearly,
             ),
           ],
           controller: tabController,
@@ -75,10 +79,18 @@ class _HomeScreenState extends State<HomeScreen>
                 ? Center(child: CircularProgressIndicator())
                 : TabBarView(
                     children: <Widget>[
-                      new DailySpendings(),
-                      new WeeklySpendings(),
-                      new MonthlySpendings(),
-                      new YearlySpendings(),
+                      new DailySpendings(
+                        name: daily,
+                      ),
+                      new WeeklySpendings(
+                        name: weekly,
+                      ),
+                      new MonthlySpendings(
+                        name: monthly,
+                      ),
+                      new YearlySpendings(
+                        name: yearly,
+                      ),
                     ],
                     controller: tabController,
                   ),

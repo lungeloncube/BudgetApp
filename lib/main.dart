@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Money Tracker',
             theme: ThemeData(
-              primaryColor: Colors.amber,
+              primaryColor: Colors.blue[100],
               accentColor: Colors.amberAccent,
               fontFamily: 'Quicksand',
               textTheme: ThemeData.light().textTheme.copyWith(
@@ -44,14 +44,14 @@ class MyApp extends StatelessWidget {
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
               appBarTheme: AppBarTheme(
-                textTheme: ThemeData.light().textTheme.copyWith(
-                      headline1: const TextStyle(
-                        fontFamily: 'OpenSans',
-                        fontSize: 24,
-                        color: Colors.black,
-                      ),
-                    ),
-              ),
+                  // textTheme: ThemeData.light().textTheme.copyWith(
+                  //       headline1: const TextStyle(
+                  //         fontFamily: 'OpenSans',
+                  //         fontSize: 24,
+                  //         color: Colors.black,
+                  //       ),
+                  //    ),
+                  ),
             ),
             routes: {
               HomeScreen.routeName: (_) => HomeScreen(),
