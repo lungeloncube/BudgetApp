@@ -8,8 +8,8 @@ class TransactionListItems extends StatefulWidget {
 
   const TransactionListItems({
     Key key,
-    @required this.trx,
-    @required this.dltTrxItem,
+    this.trx,
+    this.dltTrxItem,
   }) : super(key: key);
   @override
   _TransactionListItemsState createState() => _TransactionListItemsState();
@@ -19,8 +19,11 @@ class _TransactionListItemsState extends State<TransactionListItems> {
   @override
   Widget build(BuildContext context) {
     return Card(
+        shadowColor: Colors.blue,
+        color: Colors.grey[200],
         elevation: 5,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -66,12 +69,29 @@ class _TransactionListItemsState extends State<TransactionListItems> {
                     ),
                     onPressed: () => showDialog(
                       context: context,
-                      barrierDismissible: false,
+                      barrierDismissible: true,
                       builder: (context) => AlertDialog(
-                        title: const Text('Are you sure'),
+                        title: const Text(
+                          'Are you sure',
+                          textAlign: TextAlign.center,
+                        ),
                         content: const Text(
-                            'Do you really want to delete this transaction?'),
+                          'Do you really want to delete this transaction?',
+                          textAlign: TextAlign.center,
+                        ),
                         actions: [
+                          Align(
+                            alignment: Alignment.center,
+                          ),
+                          FlatButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text(
+                                'No',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 20),
+                              )),
                           FlatButton(
                               onPressed: () {
                                 widget.dltTrxItem(widget.trx.id);
@@ -79,18 +99,11 @@ class _TransactionListItemsState extends State<TransactionListItems> {
                               },
                               child: Text(
                                 'Yes',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: Theme.of(context).primaryColor),
                               )),
-                          FlatButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text(
-                                'No',
-                                style: TextStyle(fontSize: 20),
-                              ))
                         ],
                       ),
                     ),

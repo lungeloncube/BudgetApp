@@ -38,7 +38,7 @@ class IndicatorsWidget extends StatelessWidget {
             width: size,
             height: size,
             decoration: BoxDecoration(
-              shape:  BoxShape.circle,
+              shape: BoxShape.circle,
               color: color,
             ),
           ),

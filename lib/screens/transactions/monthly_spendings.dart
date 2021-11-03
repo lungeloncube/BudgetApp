@@ -22,8 +22,8 @@ class _MonthlySpendingsState extends State<MonthlySpendings> {
   String dropdownValue = DateFormat('MMM').format(DateTime.now());
 
   bool _showChart = false;
-  Transactions trxData;
-  Function deleteFn;
+ Transactions trxData;
+Function deleteFn;
 
   @override
   void initState() {

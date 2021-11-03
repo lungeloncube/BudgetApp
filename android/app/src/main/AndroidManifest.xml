@@ -2,7 +2,7 @@
     package="com.example.daily_spending">
 
    <application
-        android:label="daily_spending"
+        android:label="Budget App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

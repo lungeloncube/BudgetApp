@@ -44,9 +44,9 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/pie-chart.png"
-  adaptive_icon_background: "#FFBF00"
-  adaptive_icon_foreground: "assets/images/pie-chart.png"
+  image_path: "assets/images/launch_icon.png"
+  adaptive_icon_background: "#00a6ff"
+  adaptive_icon_foreground: "assets/images/launch_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
